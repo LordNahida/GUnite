@@ -2,7 +2,7 @@
 -- Game Link: https://www.roblox.com/games/2746687316/Games-Unite-Testing-Place
 
 -- // Settings \\ --
-local ESPDistance = 1e3;-- Maximum ESP Distance
+local ESPDistance = 300;-- Maximum ESP Distance
 local ESPMaxSize = 20;-- Maximum size of the ESP circles (the size depends on how close the players are to you)
 -- // Initiation \\ --
 local RunService = game:GetService("RunService");
@@ -34,7 +34,7 @@ local CFN;
 CFN = hookfunction(CFrame.new, function(...)
     local CF = CFN(...);
     if ((CF.Position - Camera.CFrame.Position).Magnitude >= 2.5 and CF.Position.Magnitude >= 5) then
-        PlayerCFrames[#PlayerCFrames+1] = CF;
+        PlayerCFrames[#PlayerCFrames+1] = CF + Vector3.new(0, 2.5, 0);
     end;
     return CF;
 end);
